@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<meta charset="ISO-8859-1">
+<style >
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, skyblue, dodgerblue);
+  font-family: "Sansita Swashed", cursive;
+}
+
+.center {
+  position: relative;
+  padding: 50px 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.center .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+.center .inputbox:last-child {
+  margin-bottom: 0;
+}
+
+
+</style>
+<title>Adding New Student</title>
+</head>
+<body>
+<div class="center">
+<h2 style="text-align: center;">New Student</h2><br><br><br>
+
+	 <form th:action="@{/save/student}" th:object="${students}" method="post"  >
+ 	 
+ 			<div class="inputbox">
+ 				<input type="text" name="name" th:field="*{name}" placeholder="Enter name" >
+ 			</div>
+ 			<div class="inputbox">
+ 				<input type="text" name="email" th:field="*{email}" placeholder="Enter email">
+ 			</div>
+ 			<div class="inputbox">
+ 				<input type="text" name="collegeId" th:field="*{collegeId}" placeholder="Enter collegeId">
+ 			</div>
+		 	<button type="submit" class="btn btn-primary" style="text-align: center;">Add</button>
+		 
+	
+ 	</form>
+ </div>
+</body>
+</html>
